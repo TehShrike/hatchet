@@ -38,7 +38,7 @@ export function useOrganizations() {
   const getOrganizationForTenant = useCallback(
     (tenantId: string) => {
       return organizations.find((org) =>
-        org.tenants.some((tenant) => tenant.id === tenantId),
+        (org.tenants || []).some((tenant) => tenant.id === tenantId),
       );
     },
     [organizations],
@@ -60,7 +60,7 @@ export function useOrganizations() {
       }
 
       return (
-        orgForTenant.tenants.find((tenant) => tenant.id === tenantId)
+        orgForTenant.tenants?.find((tenant) => tenant.id === tenantId)
           ?.status === TenantStatusType.ARCHIVED
       );
     },
