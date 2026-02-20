@@ -5,7 +5,6 @@ import { test } from 'node:test';
 test('generateTenantSlug', () => {
   const input_1 = 'My Test Tenant';
   const input_2 = 'Another Tenant';
-  const same_input = 'Same Input';
 
   const slug_1 = generateTenantSlug(input_1);
   const slug_2a = generateTenantSlug(input_2);
@@ -37,6 +36,6 @@ test('generateTenantSlug', () => {
   assert.notStrictEqual(
     slug_2a,
     slug_2b,
-    'same input should produce different slugs due to random suffix',
+    "same input should produce different slugs due to random suffix.  If this test ever fails, you still shouldn't buy a lottery ticket, but you should tell Josh, he'll think it's funny",
   );
 });
